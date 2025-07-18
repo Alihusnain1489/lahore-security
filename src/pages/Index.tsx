@@ -1,19 +1,19 @@
-import { Navbar } from "@/components/Navbar";
-import { Hero } from "@/components/Hero";
-import { Services } from "@/components/Services";
-import { About } from "@/components/About";
-import { Contact } from "@/components/Contact";
-import { Footer } from "@/components/Footer";
+import { SecuritasNavbar } from "@/components/SecuritasNavbar";
+import { SecuritasHero } from "@/components/SecuritasHero";
+import { SecuritasServices } from "@/components/SecuritasServices";
+import { SecuritasJobs } from "@/components/SecuritasJobs";
+import { SecuritasContact } from "@/components/SecuritasContact";
+import { SecuritasFooter } from "@/components/SecuritasFooter";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
-      <Navbar />
-      <Hero />
-      <Services />
-      <About />
-      <Contact />
-      <Footer />
+      <SecuritasNavbar />
+      <SecuritasHero />
+      <SecuritasServices />
+      <SecuritasJobs />
+      <SecuritasContact />
+      <SecuritasFooter />
     </div>
   );
 };

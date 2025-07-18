@@ -62,18 +62,18 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				'security-navy': 'hsl(var(--security-navy))',
-				'security-gold': 'hsl(var(--security-gold))',
-				'security-gray': 'hsl(var(--security-gray))',
-				'security-light': 'hsl(var(--security-light))'
+				'securitas-navy': 'hsl(var(--securitas-navy))',
+				'securitas-red': 'hsl(var(--securitas-red))',
+				'securitas-gray': 'hsl(var(--securitas-gray))',
+				'securitas-light': 'hsl(var(--securitas-light))'
 			},
 			backgroundImage: {
 				'gradient-hero': 'var(--gradient-hero)',
 				'gradient-card': 'var(--gradient-card)'
 			},
 			boxShadow: {
-				'security': 'var(--shadow-security)',
-				'gold': 'var(--shadow-gold)'
+				'securitas': 'var(--shadow-securitas)',
+				'red': 'var(--shadow-red)'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

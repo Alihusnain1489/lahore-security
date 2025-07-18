@@ -9,46 +9,46 @@ All colors MUST be HSL.
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 215 25% 15%;
+    --foreground: 210 11% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 215 25% 15%;
+    --card-foreground: 210 11% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 15%;
+    --popover-foreground: 210 11% 15%;
 
-    --primary: 215 85% 15%;
+    --primary: 210 100% 7%;
     --primary-foreground: 0 0% 98%;
 
     --secondary: 210 40% 94%;
-    --secondary-foreground: 215 25% 15%;
+    --secondary-foreground: 210 11% 15%;
 
     --muted: 210 40% 96%;
     --muted-foreground: 215 16% 47%;
 
-    --accent: 45 90% 55%;
-    --accent-foreground: 215 25% 15%;
+    --accent: 0 84% 47%;
+    --accent-foreground: 0 0% 98%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
     --border: 214 32% 91%;
     --input: 214 32% 91%;
-    --ring: 215 85% 15%;
+    --ring: 210 100% 7%;
 
-    /* Security theme colors */
-    --security-navy: 215 85% 15%;
-    --security-gold: 45 90% 55%;
-    --security-gray: 210 10% 50%;
-    --security-light: 210 20% 95%;
+    /* Securitas theme colors */
+    --securitas-navy: 210 100% 7%;
+    --securitas-red: 0 84% 47%;
+    --securitas-gray: 210 10% 50%;
+    --securitas-light: 210 20% 95%;
     
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(var(--security-navy)) 0%, hsl(var(--security-navy) / 0.8) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(var(--card)) 0%, hsl(var(--security-light)) 100%);
+    --gradient-hero: linear-gradient(135deg, rgba(15, 37, 64, 0.95) 0%, rgba(15, 37, 64, 0.8) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)) 0%, hsl(var(--securitas-light)) 100%);
     
     /* Shadows */
-    --shadow-security: 0 10px 40px -10px hsl(var(--security-navy) / 0.3);
-    --shadow-gold: 0 5px 20px -5px hsl(var(--security-gold) / 0.4);
+    --shadow-securitas: 0 10px 40px -10px hsl(var(--securitas-navy) / 0.3);
+    --shadow-red: 0 5px 20px -5px hsl(var(--securitas-red) / 0.4);
 
     --radius: 0.5rem;
 
