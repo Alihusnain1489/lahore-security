@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ChevronDown, Menu, X, Search, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -14,38 +15,76 @@ export const SecuritasNavbar = () => {
   const navItems = [
     {
       name: "About Us",
+      path: "/about",
       hasDropdown: true,
-      items: ["Our Company", "Leadership", "History", "Careers"]
+      items: [
+        { name: "Our Company", path: "/about" },
+        { name: "Leadership", path: "/about" },
+        { name: "History", path: "/about" },
+        { name: "Careers", path: "/careers" }
+      ]
     },
     {
-      name: "Careers",
+      name: "Careers", 
+      path: "/careers",
       hasDropdown: true,
-      items: ["Current Openings", "Benefits", "Training"]
+      items: [
+        { name: "Current Openings", path: "/careers" },
+        { name: "Benefits", path: "/careers" },
+        { name: "Training", path: "/careers" }
+      ]
     },
     {
       name: "Services",
+      path: "/services", 
       hasDropdown: true,
-      items: ["Security Guards", "Mobile Patrol", "Access Control", "Event Security"]
+      items: [
+        { name: "Security Guards", path: "/services" },
+        { name: "Mobile Patrol", path: "/services" },
+        { name: "Access Control", path: "/services" },
+        { name: "Event Security", path: "/services" }
+      ]
     },
     {
       name: "Solutions",
+      path: "/solutions",
       hasDropdown: true,
-      items: ["Corporate", "Retail", "Healthcare", "Education"]
+      items: [
+        { name: "Corporate", path: "/solutions" },
+        { name: "Retail", path: "/solutions" },
+        { name: "Healthcare", path: "/solutions" },
+        { name: "Education", path: "/solutions" }
+      ]
     },
     {
       name: "Our Employees",
+      path: "/employees",
       hasDropdown: true,
-      items: ["Resources", "Training Portal", "Benefits"]
+      items: [
+        { name: "Resources", path: "/employees" },
+        { name: "Training Portal", path: "/employees" },
+        { name: "Benefits", path: "/employees" }
+      ]
     },
     {
       name: "Contact Us",
+      path: "/contact",
       hasDropdown: true,
-      items: ["Get a Quote", "Locations", "Support"]
+      items: [
+        { name: "Get a Quote", path: "/contact" },
+        { name: "Locations", path: "/contact" },
+        { name: "Support", path: "/contact" }
+      ]
     },
     {
       name: "News",
+      path: "/news",
       hasDropdown: true,
-      items: ["Latest News", "Press Releases", "Events"]
+      items: [
+        { name: "Latest News", path: "/news" },
+        { name: "Press Releases", path: "/news" },
+        { name: "Events", path: "/news" }
+      ]
     }
   ];
 
@@ -81,10 +120,10 @@ export const SecuritasNavbar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <div className="text-xl font-bold">
+            <Link to="/" className="text-xl font-bold">
               <span className="text-securitas-red">●●●</span>
               <span className="ml-2">Guardian Shield</span>
-            </div>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
@@ -92,14 +131,18 @@ export const SecuritasNavbar = () => {
             {navItems.map((item) => (
               <DropdownMenu key={item.name}>
                 <DropdownMenuTrigger className="flex items-center space-x-1 hover:text-gray-300 transition-colors py-2">
-                  <span>{item.name}</span>
-                  {item.hasDropdown && <ChevronDown className="h-4 w-4" />}
+                  <Link to={item.path} className="flex items-center space-x-1">
+                    <span>{item.name}</span>
+                    {item.hasDropdown && <ChevronDown className="h-4 w-4" />}
+                  </Link>
                 </DropdownMenuTrigger>
                 {item.hasDropdown && (
                   <DropdownMenuContent className="bg-white text-foreground min-w-48">
                     {item.items.map((subItem) => (
-                      <DropdownMenuItem key={subItem} className="hover:bg-gray-100">
-                        {subItem}
+                      <DropdownMenuItem key={subItem.name} className="hover:bg-gray-100">
+                        <Link to={subItem.path} className="w-full">
+                          {subItem.name}
+                        </Link>
                       </DropdownMenuItem>
                     ))}
                   </DropdownMenuContent>
@@ -127,18 +170,24 @@ export const SecuritasNavbar = () => {
             <div className="flex flex-col space-y-4">
               {navItems.map((item) => (
                 <div key={item.name}>
-                  <button className="text-left text-white hover:text-gray-300 transition-colors w-full py-2">
+                  <Link 
+                    to={item.path}
+                    className="text-left text-white hover:text-gray-300 transition-colors w-full py-2 block"
+                    onClick={() => setIsOpen(false)}
+                  >
                     {item.name}
-                  </button>
+                  </Link>
                   {item.hasDropdown && (
                     <div className="ml-4 mt-2 space-y-2">
                       {item.items.map((subItem) => (
-                        <button
-                          key={subItem}
+                        <Link
+                          key={subItem.name}
+                          to={subItem.path}
                           className="block text-gray-300 hover:text-white transition-colors text-sm py-1"
+                          onClick={() => setIsOpen(false)}
                         >
-                          {subItem}
-                        </button>
+                          {subItem.name}
+                        </Link>
                       ))}
                     </div>
                   )}
