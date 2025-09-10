@@ -1,10 +1,16 @@
 import { useState } from "react";
-import { Menu, X, Search, Globe } from "lucide-react";
+import { Menu, X, Search, Globe, User, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
+import { AuthModal } from "./AuthModal";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 
 export const SecuritasNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [showAuthModal, setShowAuthModal] = useState(false);
+  const { user, logout } = useAuth();
+  const location = useLocation();
 
   const navItems = [
     {
@@ -52,14 +58,33 @@ export const SecuritasNavbar = () => {
             </div>
             <div className="flex items-center space-x-4 ml-auto">
               <Search className="h-4 w-4 hidden sm:block" />
-              <Button 
-                variant="outline" 
-                size="sm"
-                className="bg-transparent border-white text-white hover:bg-white hover:text-securitas-navy text-xs sm:text-sm px-3 sm:px-4"
-              >
-                <span className="hidden sm:inline">Request a Quote</span>
-                <span className="sm:hidden">Quote</span>
-              </Button>
+              {user ? (
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="ghost" size="sm" className="text-white hover:bg-white/10">
+                      <User className="h-4 w-4 mr-1" />
+                      <span className="hidden sm:inline">{user.name}</span>
+                      <span className="sm:hidden">User</span>
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end">
+                    <DropdownMenuItem onClick={logout}>
+                      <LogOut className="h-4 w-4 mr-2" />
+                      Logout
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              ) : (
+                <Button 
+                  variant="outline" 
+                  size="sm"
+                  className="bg-transparent border-white text-white hover:bg-white hover:text-securitas-navy text-xs sm:text-sm px-3 sm:px-4"
+                  onClick={() => setShowAuthModal(true)}
+                >
+                  <span className="hidden sm:inline">Login</span>
+                  <span className="sm:hidden">Login</span>
+                </Button>
+              )}
             </div>
           </div>
         </div>
@@ -81,15 +106,17 @@ export const SecuritasNavbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-6 xl:space-x-8">
-            {navItems.map((item) => (
-              <Link 
-                key={item.name}
-                to={item.path}
-                className="hover:text-gray-300 transition-colors py-2 text-sm xl:text-base"
-              >
-                {item.name}
-              </Link>
-            ))}
+              {navItems.map((item) => (
+                <Link 
+                  key={item.name}
+                  to={item.path}
+                  className={`hover:text-gray-300 transition-colors py-2 text-sm xl:text-base ${
+                    location.pathname === item.path ? 'text-securitas-red' : ''
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              ))}
           </div>
 
           {/* Mobile Menu Button */}
@@ -120,18 +147,39 @@ export const SecuritasNavbar = () => {
                 </Link>
               ))}
               <div className="pt-4 border-t border-white/10">
-                <Button 
-                  variant="outline" 
-                  className="bg-transparent border-white text-white hover:bg-white hover:text-securitas-navy w-full"
-                  onClick={() => setIsOpen(false)}
-                >
-                  Request a Quote
-                </Button>
+                {user ? (
+                  <Button 
+                    variant="outline" 
+                    className="bg-transparent border-white text-white hover:bg-white hover:text-securitas-navy w-full"
+                    onClick={() => {
+                      logout();
+                      setIsOpen(false);
+                    }}
+                  >
+                    Logout ({user.name})
+                  </Button>
+                ) : (
+                  <Button 
+                    variant="outline" 
+                    className="bg-transparent border-white text-white hover:bg-white hover:text-securitas-navy w-full"
+                    onClick={() => {
+                      setShowAuthModal(true);
+                      setIsOpen(false);
+                    }}
+                  >
+                    Login
+                  </Button>
+                )}
               </div>
             </div>
           </div>
         )}
       </div>
+      
+      <AuthModal 
+        isOpen={showAuthModal} 
+        onClose={() => setShowAuthModal(false)} 
+      />
     </nav>
   );
 };
