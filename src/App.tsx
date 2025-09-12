@@ -12,6 +12,7 @@ import Solutions from "./pages/Solutions";
 import Careers from "./pages/Careers";
 import Contact from "./pages/Contact";
 import News from "./pages/News";
+import Blog from "./pages/Blog";
 import Employees from "./pages/Employees";
 import NotFound from "./pages/NotFound";
 
@@ -40,6 +41,7 @@ const App: React.FC = () => {
             <Route path="/careers" element={<Careers />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/news" element={<News />} />
+            <Route path="/blog" element={<Blog />} />
             <Route path="/employees" element={<Employees />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />

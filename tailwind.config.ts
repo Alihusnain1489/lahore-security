@@ -62,18 +62,23 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				'securitas-navy': 'hsl(var(--securitas-navy))',
-				'securitas-red': 'hsl(var(--securitas-red))',
-				'securitas-gray': 'hsl(var(--securitas-gray))',
-				'securitas-light': 'hsl(var(--securitas-light))'
+				'lahore-navy': 'hsl(var(--lahore-navy))',
+				'lahore-red': 'hsl(var(--lahore-red))',
+				'lahore-gray': 'hsl(var(--lahore-gray))',
+				'lahore-light': 'hsl(var(--lahore-light))',
+				'lahore-dark-gray': 'hsl(var(--lahore-dark-gray))'
 			},
 			backgroundImage: {
 				'gradient-hero': 'var(--gradient-hero)',
 				'gradient-card': 'var(--gradient-card)'
 			},
 			boxShadow: {
-				'securitas': 'var(--shadow-securitas)',
+				'lahore': 'var(--shadow-lahore)',
 				'red': 'var(--shadow-red)'
+			},
+			fontFamily: {
+				'inter': ['Inter', 'sans-serif'],
+				'roboto': ['Roboto', 'sans-serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

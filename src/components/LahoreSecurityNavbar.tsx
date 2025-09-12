@@ -53,7 +53,7 @@ export const LahoreSecurityNavbar = () => {
               <span>EN</span>
               <button className="flex items-center space-x-1 hover:text-gray-300 transition-colors">
                 <Globe className="h-4 w-4" />
-                <span>Global Sites</span>
+                <span>Pakistan</span>
               </button>
             </div>
             <div className="flex items-center space-x-4 ml-auto">
