@@ -10,37 +10,19 @@ export const LahoreSecurityServices = () => {
     {
       icon: Shield,
       title: "Manned Guarding",
-      description: "Trained guards for residential, commercial, and industrial properties with 24/7 surveillance",
+      description: "Trained guards for residential, commercial, and industrial properties",
       image: mannedGuardingBg
     },
     {
       icon: Eye,
       title: "CCTV Monitoring",
-      description: "Advanced surveillance systems with real-time monitoring and remote access capabilities",
+      description: "24/7 surveillance with modern technology and monitoring centers",
       image: cctvMonitoringBg
     },
     {
       icon: Users,
       title: "Event Security",
-      description: "Professional crowd management, access control, and VIP protection for all event types",
-      image: eventSecurityBg
-    },
-    {
-      icon: Car,
-      title: "Mobile Patrols",
-      description: "Rapid response vehicle patrols for large areas and multiple site monitoring",
-      image: mannedGuardingBg
-    },
-    {
-      icon: Building,
-      title: "Corporate Security",
-      description: "Tailored security solutions for offices, banks, shopping centers, and corporate facilities",
-      image: cctvMonitoringBg
-    },
-    {
-      icon: Clock,
-      title: "Emergency Response",
-      description: "24/7 emergency response team with quick deployment across Lahore and surrounding areas",
+      description: "Crowd management, entry checks, and VIP protection for all events",
       image: eventSecurityBg
     }
   ];
@@ -59,24 +41,24 @@ export const LahoreSecurityServices = () => {
 
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           {services.map((service, index) => (
-            <Card key={index} className="border-none shadow-xl hover:shadow-2xl transition-all duration-300 group overflow-hidden bg-white hover:scale-105">
+            <Card key={index} className="border-none shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden">
               <div 
                 className="aspect-video bg-cover bg-center relative rounded-t-lg"
                 style={{ backgroundImage: `url(${service.image})` }}
               >
-                <div className="absolute inset-0 bg-gradient-to-t from-lahore-navy/90 to-lahore-navy/30"></div>
-                <div className="absolute bottom-4 left-4 bg-white/20 backdrop-blur-sm rounded-full p-3">
-                  <service.icon className="h-8 w-8 text-white drop-shadow-lg" />
+                <div className="absolute inset-0 bg-gradient-to-t from-lahore-navy/80 to-transparent"></div>
+                <div className="absolute bottom-4 left-4">
+                  <service.icon className="h-8 w-8 text-white" />
                 </div>
               </div>
-              <CardContent className="p-8 text-center bg-white">
-                <h3 className="text-2xl font-bold text-lahore-navy mb-4 group-hover:text-lahore-red transition-colors">
+              <CardContent className="p-8 text-center">
+                <h3 className="text-xl font-semibold text-lahore-navy mb-4">
                   {service.title}
                 </h3>
-                <p className="text-lahore-gray leading-relaxed mb-6 text-base">
+                <p className="text-lahore-gray leading-relaxed mb-6">
                   {service.description}
                 </p>
-                <Button className="bg-lahore-navy hover:bg-lahore-red text-white transition-all duration-300 shadow-lg hover:shadow-xl">
+                <Button variant="outline" className="border-lahore-navy text-lahore-navy hover:bg-lahore-navy hover:text-white">
                   Request Quote
                 </Button>
               </CardContent>

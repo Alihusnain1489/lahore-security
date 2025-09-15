@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 export const SecuritasContact = () => {
   return (
-    <section className="py-20 bg-securitas-navy ">
+    <section className="py-20 bg-securitas-navy text-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-6">Contact Guardian Shield</h2>
@@ -75,7 +75,7 @@ export const SecuritasContact = () => {
                 <div className="space-y-6">
                   <div>
                     <h4 className="font-semibold text-white text-lg">CEO</h4>
-                    <p className="text-white/80">CoL(R) Nauman Asghar</p>
+                    <p className="text-white/80">Retired Colonel Nauman Asghar</p>
                   </div>
                   
                   <div>
