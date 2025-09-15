@@ -36,19 +36,20 @@ All colors MUST be HSL.
     --input: 214 32% 91%;
     --ring: 210 100% 7%;
 
-    /* Securitas theme colors */
-    --securitas-navy: 210 100% 7%;
-    --securitas-red: 0 84% 47%;
-    --securitas-gray: 210 10% 50%;
-    --securitas-light: 210 20% 95%;
+    /* Lahore Security theme colors */
+    --lahore-navy: 210 100% 15%;
+    --lahore-red: 0 84% 47%;
+    --lahore-gray: 210 15% 45%;
+    --lahore-light: 210 20% 96%;
+    --lahore-dark-gray: 220 15% 25%;
     
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, rgba(15, 37, 64, 0.95) 0%, rgba(15, 37, 64, 0.8) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(var(--card)) 0%, hsl(var(--securitas-light)) 100%);
+    --gradient-hero: linear-gradient(135deg, rgba(28, 60, 99, 0.95) 0%, rgba(28, 60, 99, 0.8) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)) 0%, hsl(var(--lahore-light)) 100%);
     
     /* Shadows */
-    --shadow-securitas: 0 10px 40px -10px hsl(var(--securitas-navy) / 0.3);
-    --shadow-red: 0 5px 20px -5px hsl(var(--securitas-red) / 0.4);
+    --shadow-lahore: 0 10px 40px -10px hsl(var(--lahore-navy) / 0.3);
+    --shadow-red: 0 5px 20px -5px hsl(var(--lahore-red) / 0.4);
 
     --radius: 0.5rem;
 
@@ -115,5 +116,11 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
   }
 }
