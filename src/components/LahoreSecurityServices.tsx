@@ -1,6 +1,9 @@
 import { Shield, Users, Building, Car, Eye, Clock } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import mannedGuardingBg from "@/assets/manned-guarding-bg.jpg";
+import cctvMonitoringBg from "@/assets/cctv-monitoring-bg.jpg";
+import eventSecurityBg from "@/assets/event-security-bg.jpg";
 
 export const LahoreSecurityServices = () => {
   const services = [
@@ -8,19 +11,19 @@ export const LahoreSecurityServices = () => {
       icon: Shield,
       title: "Manned Guarding",
       description: "Trained guards for residential, commercial, and industrial properties",
-      image: "/api/placeholder/300/200"
+      image: mannedGuardingBg
     },
     {
       icon: Eye,
       title: "CCTV Monitoring",
       description: "24/7 surveillance with modern technology and monitoring centers",
-      image: "/api/placeholder/300/200"
+      image: cctvMonitoringBg
     },
     {
       icon: Users,
       title: "Event Security",
       description: "Crowd management, entry checks, and VIP protection for all events",
-      image: "/api/placeholder/300/200"
+      image: eventSecurityBg
     }
   ];
 
@@ -38,12 +41,17 @@ export const LahoreSecurityServices = () => {
 
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           {services.map((service, index) => (
-            <Card key={index} className="border-none shadow-lg hover:shadow-xl transition-shadow duration-300 group">
-              <div className="aspect-video bg-gradient-to-br from-lahore-light to-lahore-navy/10 rounded-t-lg"></div>
-              <CardContent className="p-8 text-center">
-                <div className="bg-lahore-navy/10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <service.icon className="h-8 w-8 text-lahore-navy" />
+            <Card key={index} className="border-none shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden">
+              <div 
+                className="aspect-video bg-cover bg-center relative rounded-t-lg"
+                style={{ backgroundImage: `url(${service.image})` }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-t from-lahore-navy/80 to-transparent"></div>
+                <div className="absolute bottom-4 left-4">
+                  <service.icon className="h-8 w-8 text-white" />
                 </div>
+              </div>
+              <CardContent className="p-8 text-center">
                 <h3 className="text-xl font-semibold text-lahore-navy mb-4">
                   {service.title}
                 </h3>
