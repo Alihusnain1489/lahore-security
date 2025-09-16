@@ -4,10 +4,34 @@ import { HeroSection } from "@/components/HeroSection";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { FileText, Users, Trophy, BookOpen, Shield, Clock, Phone, Mail } from "lucide-react";
+import { FileText, Users, Trophy, BookOpen, Shield, Clock, Phone, Mail, Star } from "lucide-react";
 import employeesHero from "@/assets/employees-hero.jpg";
+import trainingBg from "@/assets/training-bg.jpg";
+import corporateBg from "@/assets/corporate-security-bg.jpg";
+import healthcareBg from "@/assets/healthcare-security-bg.jpg";
 
 const Employees = () => {
+  const employeeHighlights = [
+    {
+      title: "Professional Development",
+      description: "Continuous learning opportunities and career advancement programs",
+      image: trainingBg,
+      feature: "Skills Enhancement"
+    },
+    {
+      title: "Employee Recognition",
+      description: "Award programs recognizing outstanding performance and dedication",
+      image: corporateBg,
+      feature: "Merit-Based Awards"
+    },
+    {
+      title: "Health & Wellness",
+      description: "Comprehensive healthcare benefits and wellness support programs",
+      image: healthcareBg,
+      feature: "Full Coverage"
+    }
+  ];
+
   const resources = [
     {
       icon: FileText,
@@ -115,6 +139,28 @@ const Employees = () => {
       />
       <div className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
+
+        {/* Employee Highlight Cards */}
+        <div className="grid md:grid-cols-3 gap-8 mb-16">
+          {employeeHighlights.map((highlight, index) => (
+            <Card key={index} className="relative overflow-hidden group hover:shadow-xl transition-all duration-300">
+              <div 
+                className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                style={{ backgroundImage: `url(${highlight.image})` }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-t from-securitas-navy/90 to-securitas-navy/70"></div>
+              </div>
+              <CardContent className="relative z-10 p-8 text-center text-white">
+                <Star className="h-8 w-8 text-yellow-400 mx-auto mb-4" />
+                <h3 className="text-xl font-bold mb-3">{highlight.title}</h3>
+                <p className="text-white/90 mb-4">{highlight.description}</p>
+                <div className="bg-securitas-red px-4 py-2 rounded-full inline-block">
+                  <span className="font-semibold">{highlight.feature}</span>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
 
         {/* Quick Access Resources */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">

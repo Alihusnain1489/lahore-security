@@ -4,10 +4,34 @@ import { HeroSection } from "@/components/HeroSection";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Calendar, User, ArrowRight, Newspaper, Globe } from "lucide-react";
+import { Calendar, User, ArrowRight, Newspaper, Globe, Award } from "lucide-react";
 import newsHero from "@/assets/news-hero.jpg";
+import pressBg from "@/assets/press-conference-bg.jpg";
+import corporateBg from "@/assets/corporate-security-bg.jpg";
+import trainingBg from "@/assets/training-bg.jpg";
 
 const News = () => {
+  const featuredNews = [
+    {
+      title: "Media Coverage",
+      description: "Lahore Security featured in leading news outlets for innovation in security technology",
+      image: pressBg,
+      category: "Press Coverage"
+    },
+    {
+      title: "Corporate Partnerships",
+      description: "Expanding partnerships with major corporations for enhanced security solutions",
+      image: corporateBg,
+      category: "Business Growth"
+    },
+    {
+      title: "Training Excellence",
+      description: "Award-winning training programs setting new industry standards",
+      image: trainingBg,
+      category: "Training & Development"
+    }
+  ];
+
   const newsArticles = [
     {
       title: "Lahore Security Expands Operations to Three New Districts",
@@ -115,6 +139,28 @@ const News = () => {
       />
       <div className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
+
+        {/* Featured News Cards */}
+        <div className="grid md:grid-cols-3 gap-8 mb-16">
+          {featuredNews.map((news, index) => (
+            <Card key={index} className="relative overflow-hidden group hover:shadow-xl transition-all duration-300">
+              <div 
+                className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                style={{ backgroundImage: `url(${news.image})` }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-t from-securitas-navy/90 to-securitas-navy/70"></div>
+              </div>
+              <CardContent className="relative z-10 p-8 text-center text-white">
+                <Badge className="bg-securitas-red mb-4">{news.category}</Badge>
+                <h3 className="text-xl font-bold mb-3">{news.title}</h3>
+                <p className="text-white/90 mb-4">{news.description}</p>
+                <Button className="bg-white text-securitas-navy hover:bg-white/90">
+                  Read More <ArrowRight className="h-4 w-4 ml-2" />
+                </Button>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Main News Section */}

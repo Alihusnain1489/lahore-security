@@ -2,10 +2,34 @@ import { LahoreSecurityNavbar } from "@/components/LahoreSecurityNavbar";
 import { LahoreSecurityFooter } from "@/components/LahoreSecurityFooter";
 import { HeroSection } from "@/components/HeroSection";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Shield, Users, Award, Clock } from "lucide-react";
+import { Shield, Users, Award, Clock, Building, Target, Star } from "lucide-react";
 import aboutHero from "@/assets/about-hero.jpg";
+import corporateBg from "@/assets/corporate-security-bg.jpg";
+import retailBg from "@/assets/retail-security-bg.jpg";
+import trainingBg from "@/assets/training-bg.jpg";
 
 const About = () => {
+  const achievements = [
+    {
+      title: "Corporate Excellence",
+      description: "Leading provider of corporate security solutions across Lahore",
+      image: corporateBg,
+      stats: "500+ Corporate Clients"
+    },
+    {
+      title: "Retail Protection",
+      description: "Specialized security services for shopping centers and retail stores",
+      image: retailBg,
+      stats: "200+ Retail Locations"
+    },
+    {
+      title: "Professional Training",
+      description: "Advanced training programs for security personnel excellence",
+      image: trainingBg,
+      stats: "1000+ Trained Guards"
+    }
+  ];
+
   return (
     <div className="min-h-screen">
       <LahoreSecurityNavbar />
@@ -16,6 +40,27 @@ const About = () => {
       />
       <div className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
+          {/* Achievement Cards with Background Images */}
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            {achievements.map((achievement, index) => (
+              <Card key={index} className="relative overflow-hidden group hover:shadow-xl transition-all duration-300">
+                <div 
+                  className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                  style={{ backgroundImage: `url(${achievement.image})` }}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-t from-lahore-navy/90 to-lahore-navy/70"></div>
+                </div>
+                <CardContent className="relative z-10 p-8 text-center text-white">
+                  <h3 className="text-xl font-bold mb-3">{achievement.title}</h3>
+                  <p className="text-white/90 mb-4">{achievement.description}</p>
+                  <div className="bg-lahore-red px-4 py-2 rounded-full inline-block">
+                    <span className="font-semibold">{achievement.stats}</span>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             <Card className="text-center">
               <CardHeader>

@@ -3,10 +3,41 @@ import { LahoreSecurityFooter } from "@/components/LahoreSecurityFooter";
 import { HeroSection } from "@/components/HeroSection";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Building2, ShoppingCart, Heart, GraduationCap, Factory, Home } from "lucide-react";
+import { Building2, ShoppingCart, Heart, GraduationCap, Factory, Home, Shield } from "lucide-react";
 import solutionsHero from "@/assets/solutions-hero.jpg";
+import corporateBg from "@/assets/corporate-security-bg.jpg";
+import retailBg from "@/assets/retail-security-bg.jpg";
+import healthcareBg from "@/assets/healthcare-security-bg.jpg";
+import educationBg from "@/assets/education-security-bg.jpg";
 
 const Solutions = () => {
+  const solutionHighlights = [
+    {
+      title: "Corporate Security Excellence",
+      description: "Comprehensive protection for businesses and corporate facilities",
+      image: corporateBg,
+      clients: "500+ Corporations"
+    },
+    {
+      title: "Retail Security Solutions",
+      description: "Specialized protection for retail environments and shopping centers",
+      image: retailBg,
+      clients: "200+ Retail Stores"
+    },
+    {
+      title: "Healthcare Security",
+      description: "Professional security tailored for medical facilities and hospitals",
+      image: healthcareBg,
+      clients: "50+ Healthcare Facilities"
+    },
+    {
+      title: "Educational Security",
+      description: "Safe learning environments for schools and educational institutions",
+      image: educationBg,
+      clients: "100+ Educational Institutions"
+    }
+  ];
+
   const solutions = [
     {
       icon: Building2,
@@ -98,6 +129,28 @@ const Solutions = () => {
       />
       <div className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
+
+        {/* Solution Highlight Cards */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          {solutionHighlights.map((highlight, index) => (
+            <Card key={index} className="relative overflow-hidden group hover:shadow-xl transition-all duration-300">
+              <div 
+                className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                style={{ backgroundImage: `url(${highlight.image})` }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-t from-lahore-navy/90 to-lahore-navy/70"></div>
+              </div>
+              <CardContent className="relative z-10 p-6 text-center text-white">
+                <Shield className="h-8 w-8 text-lahore-red mx-auto mb-3" />
+                <h3 className="text-lg font-bold mb-2">{highlight.title}</h3>
+                <p className="text-white/90 text-sm mb-3">{highlight.description}</p>
+                <div className="bg-lahore-red px-3 py-1 rounded-full inline-block">
+                  <span className="text-sm font-semibold">{highlight.clients}</span>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
 
         <div className="grid lg:grid-cols-2 gap-8 mb-16">
           {solutions.map((solution, index) => (

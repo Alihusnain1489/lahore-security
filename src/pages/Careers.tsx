@@ -6,8 +6,35 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Clock, DollarSign, Users, Briefcase, Award } from "lucide-react";
 import careersHero from "@/assets/careers-hero.jpg";
+import corporateBg from "@/assets/corporate-security-bg.jpg";
+import retailBg from "@/assets/retail-security-bg.jpg";
+import trainingBg from "@/assets/training-bg.jpg";
 
 const Careers = () => {
+  const careerOpportunities = [
+    {
+      title: "Security Leadership",
+      description: "Lead security teams and manage operations across multiple locations",
+      image: corporateBg,
+      positions: "5 Open Positions",
+      level: "Management"
+    },
+    {
+      title: "Field Operations",
+      description: "Front-line security services for retail and commercial clients",
+      image: retailBg,
+      positions: "15 Open Positions", 
+      level: "Entry Level"
+    },
+    {
+      title: "Training & Development",
+      description: "Shape the future of security through comprehensive training programs",
+      image: trainingBg,
+      positions: "3 Open Positions",
+      level: "Specialist"
+    }
+  ];
+
   const jobOpenings = [
     {
       title: "Security Guard - Day Shift",
@@ -76,6 +103,35 @@ const Careers = () => {
       />
       <div className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
+
+        {/* Career Opportunity Cards */}
+        <div className="grid md:grid-cols-3 gap-8 mb-16">
+          {careerOpportunities.map((opportunity, index) => (
+            <Card key={index} className="relative overflow-hidden group hover:shadow-xl transition-all duration-300">
+              <div 
+                className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                style={{ backgroundImage: `url(${opportunity.image})` }}
+              >
+                <div className="absolute inset-0 bg-gradient-to-t from-securitas-navy/90 to-securitas-navy/70"></div>
+              </div>
+              <CardContent className="relative z-10 p-8 text-center text-white">
+                <h3 className="text-xl font-bold mb-3">{opportunity.title}</h3>
+                <p className="text-white/90 mb-4">{opportunity.description}</p>
+                <div className="space-y-2">
+                  <div className="bg-securitas-red px-4 py-2 rounded-full inline-block">
+                    <span className="font-semibold">{opportunity.positions}</span>
+                  </div>
+                  <div className="bg-white/20 px-3 py-1 rounded-full inline-block ml-2">
+                    <span className="text-sm">{opportunity.level}</span>
+                  </div>
+                </div>
+                <Button className="mt-4 bg-white text-securitas-navy hover:bg-white/90">
+                  View Positions
+                </Button>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
 
         <div className="grid lg:grid-cols-3 gap-8 mb-16">
           <div className="lg:col-span-2">
