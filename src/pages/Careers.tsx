@@ -1,7 +1,11 @@
+import { LahoreSecurityNavbar } from "@/components/LahoreSecurityNavbar";
+import { LahoreSecurityFooter } from "@/components/LahoreSecurityFooter";
+import { HeroSection } from "@/components/HeroSection";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { MapPin, Clock, DollarSign, Users } from "lucide-react";
+import { MapPin, Clock, DollarSign, Users, Briefcase, Award } from "lucide-react";
+import careersHero from "@/assets/careers-hero.jpg";
 
 const Careers = () => {
   const jobOpenings = [
@@ -25,6 +29,27 @@ const Careers = () => {
       type: "Full-time", 
       salary: "PKR 30,000 - 45,000",
       requirements: ["Valid driving license", "Security experience", "GPS knowledge", "Emergency response training"]
+    },
+    {
+      title: "CCTV Monitoring Specialist",
+      location: "Lahore, Punjab",
+      type: "Full-time",
+      salary: "PKR 35,000 - 50,000",
+      requirements: ["Technical background", "Attention to detail", "Computer literacy", "Night shift availability"]
+    },
+    {
+      title: "Security Manager",
+      location: "Lahore, Punjab",
+      type: "Full-time",
+      salary: "PKR 60,000 - 80,000",
+      requirements: ["5+ years management experience", "Security certifications", "Team leadership", "Strategic planning"]
+    },
+    {
+      title: "Event Security Coordinator",
+      location: "Lahore, Punjab",
+      type: "Part-time",
+      salary: "PKR 28,000 - 40,000",
+      requirements: ["Event management experience", "Crowd control training", "Communication skills", "Flexible schedule"]
     }
   ];
 
@@ -34,19 +59,23 @@ const Careers = () => {
     "Paid training programs", 
     "Career advancement opportunities",
     "Uniform and equipment provided",
-    "Performance bonuses"
+    "Performance bonuses",
+    "Retirement savings plan",
+    "Paid vacation and sick leave",
+    "Professional development support",
+    "Life insurance coverage"
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-20">
-      <div className="container mx-auto px-4 py-16">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-securitas-navy mb-4">Join Our Team</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Build a rewarding career in security with Guardian Shield. We offer excellent 
-            opportunities for growth and development in a professional environment.
-          </p>
-        </div>
+    <div className="min-h-screen">
+      <LahoreSecurityNavbar />
+      <HeroSection
+        title="Build Your Career in Security"
+        subtitle="Join our team of dedicated professionals and grow your career in the security industry with comprehensive training, competitive benefits, and advancement opportunities."
+        backgroundImage={careersHero}
+      />
+      <div className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
 
         <div className="grid lg:grid-cols-3 gap-8 mb-16">
           <div className="lg:col-span-2">
@@ -152,7 +181,9 @@ const Careers = () => {
             Submit General Application
           </Button>
         </div>
+        </div>
       </div>
+      <LahoreSecurityFooter />
     </div>
   );
 };

@@ -1,79 +1,120 @@
+import { LahoreSecurityNavbar } from "@/components/LahoreSecurityNavbar";
+import { LahoreSecurityFooter } from "@/components/LahoreSecurityFooter";
+import { HeroSection } from "@/components/HeroSection";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Calendar, User, ArrowRight } from "lucide-react";
+import { Calendar, User, ArrowRight, Newspaper, Globe } from "lucide-react";
+import newsHero from "@/assets/news-hero.jpg";
 
 const News = () => {
   const newsArticles = [
     {
-      title: "Guardian Shield Expands Security Services Across Lahore",
-      excerpt: "We're pleased to announce the expansion of our security services to cover additional areas of Lahore, bringing professional security solutions closer to more communities.",
-      date: "January 15, 2025",
-      author: "Guardian Shield Team",
+      title: "Lahore Security Expands Operations to Three New Districts",
+      excerpt: "We're proud to announce our expansion into DHA, Gulberg, and Johar Town, bringing professional security services to more communities across Lahore with state-of-the-art technology and trained personnel.",
+      date: "March 15, 2025",
+      author: "Lahore Security Team",
       category: "Company News",
       featured: true
     },
     {
-      title: "New Advanced Training Program for Security Personnel",
-      excerpt: "Our comprehensive training program ensures all security officers receive the latest in security protocols, emergency response, and customer service excellence.",
-      date: "January 10, 2025", 
-      author: "Training Department",
-      category: "Training",
+      title: "Revolutionary AI-Powered Surveillance System Launched",
+      excerpt: "Our new artificial intelligence-enhanced CCTV monitoring system provides real-time threat detection and automated incident response, setting new standards in security technology.",
+      date: "March 10, 2025", 
+      author: "Technology Department",
+      category: "Innovation",
       featured: false
     },
     {
-      title: "Partnership with Local Law Enforcement Strengthened",
-      excerpt: "Guardian Shield continues to work closely with local police and emergency services to ensure rapid response and comprehensive security coverage.",
-      date: "January 5, 2025",
+      title: "Partnership with Punjab Police for Enhanced Security",
+      excerpt: "Lahore Security strengthens collaboration with law enforcement agencies to provide integrated security solutions and faster emergency response times across the city.",
+      date: "March 5, 2025",
       author: "Management Team",
       category: "Partnerships",
       featured: false
     },
     {
-      title: "Award for Excellence in Security Services",
-      excerpt: "Guardian Shield has been recognized for outstanding service quality and professionalism in the security industry.",
-      date: "December 28, 2024",
-      author: "Guardian Shield Team", 
+      title: "Security Excellence Award from Chamber of Commerce",
+      excerpt: "Lahore Security receives prestigious recognition for outstanding contribution to business security and crime prevention in the commercial sector.",
+      date: "February 28, 2025",
+      author: "Lahore Security Team", 
       category: "Awards",
+      featured: false
+    },
+    {
+      title: "Advanced Crisis Management Training Program Introduced",
+      excerpt: "New comprehensive training modules focus on emergency response, crisis communication, and advanced security protocols to ensure our team stays ahead of evolving threats.",
+      date: "February 20, 2025",
+      author: "Training Department",
+      category: "Training",
+      featured: false
+    },
+    {
+      title: "Mobile Security Units Deployed Across Lahore",
+      excerpt: "Fleet of 50 new mobile patrol vehicles equipped with GPS tracking and communication systems now provides rapid response security services throughout the metropolitan area.",
+      date: "February 15, 2025",
+      author: "Operations Team",
+      category: "Services",
       featured: false
     }
   ];
 
   const pressReleases = [
     {
-      title: "Guardian Shield Launches Mobile Patrol Services",
-      date: "January 20, 2025",
-      excerpt: "New mobile patrol services provide enhanced security coverage for multiple locations with real-time monitoring and reporting."
+      title: "Lahore Security Introduces Smart Building Integration",
+      date: "March 18, 2025",
+      excerpt: "Revolutionary IoT-based security solutions for smart buildings provide automated access control and integrated monitoring systems."
     },
     {
-      title: "Technology Integration in Security Operations",
-      date: "January 8, 2025", 
-      excerpt: "Implementation of advanced GPS tracking and digital reporting systems improves service quality and response times."
+      title: "International Security Standards Certification Achieved",
+      date: "March 12, 2025", 
+      excerpt: "Lahore Security becomes first local company to achieve ISO 27001 and ISO 45001 certifications for information security and occupational health standards."
+    },
+    {
+      title: "Community Safety Initiative Program Launched",
+      date: "March 8, 2025",
+      excerpt: "Free security awareness workshops and emergency preparedness training offered to residential communities across Lahore."
+    },
+    {
+      title: "Strategic Partnership with Leading Technology Providers",
+      date: "February 25, 2025",
+      excerpt: "Collaboration with international security technology companies brings cutting-edge surveillance and access control solutions to Pakistan."
     }
   ];
 
   const upcomingEvents = [
     {
-      title: "Security Awareness Workshop",
-      date: "February 15, 2025",
-      location: "Lahore Community Center"
+      title: "Annual Security Excellence Conference",
+      date: "April 15, 2025",
+      location: "Expo Center Lahore"
     },
     {
-      title: "Job Fair - Security Positions",
-      date: "February 28, 2025", 
-      location: "Guardian Shield Office"
+      title: "Career Fair - Security & Technology Jobs",
+      date: "April 8, 2025", 
+      location: "Lahore Security Headquarters"
+    },
+    {
+      title: "Community Safety Workshop Series",
+      date: "March 30, 2025",
+      location: "Multiple Locations Across Lahore"
+    },
+    {
+      title: "Advanced Security Training Certification",
+      date: "April 22, 2025",
+      location: "Training Academy, Model Town"
     }
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-20">
-      <div className="container mx-auto px-4 py-16">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-securitas-navy mb-4">News & Updates</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Stay informed about the latest news, updates, and developments from Guardian Shield.
-          </p>
-        </div>
+    <div className="min-h-screen">
+      <LahoreSecurityNavbar />
+      <HeroSection
+        title="Latest News & Updates"
+        subtitle="Stay informed about the latest developments, innovations, and achievements from Lahore Security. Discover our ongoing commitment to excellence in security services."
+        backgroundImage={newsHero}
+      />
+      <div className="py-16 bg-gray-50">
+        <div className="container mx-auto px-4">
 
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Main News Section */}
@@ -207,7 +248,9 @@ const News = () => {
             </Card>
           </div>
         </div>
+        </div>
       </div>
+      <LahoreSecurityFooter />
     </div>
   );
 };
