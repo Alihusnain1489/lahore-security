@@ -53,7 +53,7 @@ export const Services = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <Card key={index} className="bg-gradient-card shadow-security hover:shadow-gold transition-all duration-300 hover:-translate-y-2">
+            <Card key={index} className="bg-gradient-card shadow-security hover:shadow-gold hover:scale-102 transition-all duration-300 hover:-translate-y-2">
               <CardContent className="p-6">
                 <div className="flex items-center mb-4">
                   <div className="p-3 bg-primary rounded-lg mr-4">

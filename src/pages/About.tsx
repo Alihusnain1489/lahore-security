@@ -51,7 +51,7 @@ const About = () => {
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 viewport={{ once: true }}
               >
-                <Card className="relative overflow-hidden group hover:shadow-xl transition-all duration-300">
+                <Card className="relative overflow-hidden group hover:shadow-xl hover:scale-102 transition-all duration-300">
                 <div 
                   className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                   style={{ backgroundImage: `url(${achievement.image})` }}
@@ -77,7 +77,7 @@ const About = () => {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <Card className="text-center">
+              <Card className="text-center hover:scale-102 transition-all duration-300">
               <CardHeader>
                 <Shield className="h-12 w-12 text-lahore-red mx-auto mb-4" />
                 <CardTitle>Trusted Security</CardTitle>
@@ -94,7 +94,7 @@ const About = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <Card className="text-center">
+              <Card className="text-center hover:scale-102 transition-all duration-300">
               <CardHeader>
                 <Users className="h-12 w-12 text-lahore-red mx-auto mb-4" />
                 <CardTitle>Expert Team</CardTitle>
@@ -111,7 +111,7 @@ const About = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              <Card className="text-center">
+              <Card className="text-center hover:scale-102 transition-all duration-300">
               <CardHeader>
                 <Award className="h-12 w-12 text-lahore-red mx-auto mb-4" />
                 <CardTitle>Quality Service</CardTitle>
@@ -128,7 +128,7 @@ const About = () => {
               transition={{ duration: 0.6, delay: 0.6 }}
               viewport={{ once: true }}
             >
-              <Card className="text-center">
+              <Card className="text-center hover:scale-102 transition-all duration-300">
               <CardHeader>
                 <Clock className="h-12 w-12 text-lahore-red mx-auto mb-4" />
                 <CardTitle>24/7 Coverage</CardTitle>
@@ -152,7 +152,7 @@ const About = () => {
                 our clients and communities. We embody our core values: Integrity, Vigilance, and Helpfulness.
               </p>
             </div>
-            <div className="bg-white p-8 rounded-lg shadow-lg">
+            <div className="bg-white p-8 rounded-lg shadow-lg hover:scale-102 transition-all duration-300">
               <h3 className="text-2xl font-bold text-lahore-navy mb-4">Why Choose Lahore Security?</h3>
               <ul className="space-y-3 text-lahore-gray">
                 <li className="flex items-center">

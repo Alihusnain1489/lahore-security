@@ -72,7 +72,7 @@ export const Contact = () => {
           {/* Quick Contact Actions */}
           <div className="lg:col-span-2">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-              <Card className="bg-gradient-card shadow-security hover:shadow-gold transition-all duration-300">
+              <Card className="bg-gradient-card shadow-security hover:shadow-gold hover:scale-102 transition-all duration-300">
                 <CardContent className="p-6 text-center">
                   <div className="p-4 bg-accent rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                     <MessageCircle className="h-8 w-8 text-accent-foreground" />
@@ -90,7 +90,7 @@ export const Contact = () => {
                 </CardContent>
               </Card>
 
-              <Card className="bg-gradient-card shadow-security hover:shadow-gold transition-all duration-300">
+              <Card className="bg-gradient-card shadow-security hover:shadow-gold hover:scale-102 transition-all duration-300">
                 <CardContent className="p-6 text-center">
                   <div className="p-4 bg-primary rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                     <Phone className="h-8 w-8 text-primary-foreground" />

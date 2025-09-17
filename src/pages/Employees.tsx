@@ -151,7 +151,7 @@ const Employees = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className="relative overflow-hidden group hover:shadow-xl transition-all duration-300">
+              <Card className="relative overflow-hidden group hover:shadow-xl hover:scale-102 transition-all duration-300">
               <div 
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                 style={{ backgroundImage: `url(${highlight.image})` }}
@@ -174,7 +174,7 @@ const Employees = () => {
         {/* Quick Access Resources */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {resources.map((resource, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow cursor-pointer">
+            <Card key={index} className="hover:shadow-lg hover:scale-102 transition-all duration-300 cursor-pointer">
               <CardHeader className="text-center">
                 <resource.icon className="h-12 w-12 text-securitas-red mx-auto mb-4" />
                 <CardTitle className="text-securitas-navy">{resource.title}</CardTitle>
@@ -199,7 +199,7 @@ const Employees = () => {
             </h2>
             <div className="space-y-4">
               {trainingPrograms.map((program, index) => (
-                <Card key={index}>
+                <Card key={index} className="hover:scale-102 transition-all duration-300">
                   <CardHeader>
                     <div className="flex justify-between items-start">
                       <CardTitle className="text-securitas-navy">{program.title}</CardTitle>
@@ -231,7 +231,7 @@ const Employees = () => {
             </h2>
             <div className="space-y-6">
               {benefits.map((benefit, index) => (
-                <Card key={index}>
+                <Card key={index} className="hover:scale-102 transition-all duration-300">
                   <CardHeader>
                     <CardTitle className="text-securitas-navy">{benefit.category}</CardTitle>
                   </CardHeader>

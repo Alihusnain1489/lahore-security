@@ -115,7 +115,7 @@ const Careers = () => {
               transition={{ duration: 0.6, delay: index * 0.2 }}
               viewport={{ once: true }}
             >
-              <Card className="relative overflow-hidden group hover:shadow-xl transition-all duration-300">
+              <Card className="relative overflow-hidden group hover:shadow-xl hover:scale-102 transition-all duration-300">
               <div 
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                 style={{ backgroundImage: `url(${opportunity.image})` }}
@@ -154,7 +154,7 @@ const Careers = () => {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                 >
-                  <Card className="hover:shadow-lg transition-shadow">
+                  <Card className="hover:shadow-lg hover:scale-102 transition-all duration-300">
                   <CardHeader>
                     <div className="flex justify-between items-start">
                       <div>
@@ -197,7 +197,7 @@ const Careers = () => {
           </div>
 
           <div>
-            <Card>
+            <Card className="hover:scale-102 transition-all duration-300">
               <CardHeader>
                 <CardTitle className="text-securitas-navy flex items-center">
                   <Users className="h-5 w-5 mr-2" />
@@ -216,7 +216,7 @@ const Careers = () => {
               </CardContent>
             </Card>
 
-            <Card className="mt-6">
+            <Card className="mt-6 hover:scale-102 transition-all duration-300">
               <CardHeader>
                 <CardTitle className="text-securitas-navy">Application Process</CardTitle>
               </CardHeader>

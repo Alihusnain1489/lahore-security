@@ -151,7 +151,7 @@ const News = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className="relative overflow-hidden group hover:shadow-xl transition-all duration-300">
+              <Card className="relative overflow-hidden group hover:shadow-xl hover:scale-102 transition-all duration-300">
               <div 
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                 style={{ backgroundImage: `url(${news.image})` }}
@@ -178,7 +178,7 @@ const News = () => {
             
             {/* Featured Article */}
             {newsArticles.filter(article => article.featured).map((article, index) => (
-              <Card key={index} className="mb-8 border-l-4 border-l-securitas-red">
+              <Card key={index} className="mb-8 border-l-4 border-l-securitas-red hover:scale-102 transition-all duration-300">
                 <CardHeader>
                   <div className="flex items-center gap-2 mb-2">
                     <Badge className="bg-securitas-red">{article.category}</Badge>
@@ -208,7 +208,7 @@ const News = () => {
             {/* Regular Articles */}
             <div className="space-y-6">
               {newsArticles.filter(article => !article.featured).map((article, index) => (
-                <Card key={index} className="hover:shadow-lg transition-shadow">
+                <Card key={index} className="hover:shadow-lg hover:scale-102 transition-all duration-300">
                   <CardHeader>
                     <div className="flex items-center gap-2 mb-2">
                       <Badge variant="outline">{article.category}</Badge>
@@ -239,7 +239,7 @@ const News = () => {
           {/* Sidebar */}
           <div className="space-y-6">
             {/* Press Releases */}
-            <Card>
+            <Card className="hover:scale-102 transition-all duration-300">
               <CardHeader>
                 <CardTitle className="text-securitas-navy">Press Releases</CardTitle>
               </CardHeader>
@@ -260,7 +260,7 @@ const News = () => {
             </Card>
 
             {/* Upcoming Events */}
-            <Card>
+            <Card className="hover:scale-102 transition-all duration-300">
               <CardHeader>
                 <CardTitle className="text-securitas-navy">Upcoming Events</CardTitle>
               </CardHeader>
@@ -281,7 +281,7 @@ const News = () => {
             </Card>
 
             {/* Newsletter Signup */}
-            <Card>
+            <Card className="hover:scale-102 transition-all duration-300">
               <CardHeader>
                 <CardTitle className="text-securitas-navy">Stay Updated</CardTitle>
               </CardHeader>

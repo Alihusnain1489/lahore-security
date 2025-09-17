@@ -149,7 +149,7 @@ export const HomeBlog = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className="border-none shadow-xl hover:shadow-2xl transition-all duration-300 group cursor-pointer bg-white hover:scale-105">
+              <Card className="border-none shadow-xl hover:shadow-2xl transition-all duration-300 group cursor-pointer bg-white hover:scale-102">
               <div className="aspect-video relative overflow-hidden rounded-t-lg">
                 <img 
                   src={blog.image} 

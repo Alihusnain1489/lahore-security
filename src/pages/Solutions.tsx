@@ -141,7 +141,7 @@ const Solutions = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className="relative overflow-hidden group hover:shadow-xl transition-all duration-300">
+              <Card className="relative overflow-hidden group hover:shadow-xl hover:scale-102 transition-all duration-300">
               <div 
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                 style={{ backgroundImage: `url(${highlight.image})` }}
@@ -170,7 +170,7 @@ const Solutions = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <Card className="hover:shadow-lg transition-shadow">
+              <Card className="hover:shadow-lg hover:scale-102 transition-all duration-300">
               <CardHeader>
                 <div className="flex items-center mb-4">
                   <solution.icon className="h-12 w-12 text-lahore-red mr-4" />
