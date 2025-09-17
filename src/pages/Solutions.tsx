@@ -4,6 +4,7 @@ import { HeroSection } from "@/components/HeroSection";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Building2, ShoppingCart, Heart, GraduationCap, Factory, Home, Shield } from "lucide-react";
+import { motion } from "framer-motion";
 import solutionsHero from "@/assets/solutions-hero.jpg";
 import corporateBg from "@/assets/corporate-security-bg.jpg";
 import retailBg from "@/assets/retail-security-bg.jpg";
@@ -133,7 +134,14 @@ const Solutions = () => {
         {/* Solution Highlight Cards */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {solutionHighlights.map((highlight, index) => (
-            <Card key={index} className="relative overflow-hidden group hover:shadow-xl transition-all duration-300">
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+            >
+              <Card className="relative overflow-hidden group hover:shadow-xl transition-all duration-300">
               <div 
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                 style={{ backgroundImage: `url(${highlight.image})` }}
@@ -147,14 +155,22 @@ const Solutions = () => {
                 <div className="bg-lahore-red px-3 py-1 rounded-full inline-block">
                   <span className="text-sm font-semibold">{highlight.clients}</span>
                 </div>
-              </CardContent>
-            </Card>
-          ))}
+                  </CardContent>
+                </Card>
+              </motion.div>
+              ))}
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8 mb-16">
           {solutions.map((solution, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow">
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+            >
+              <Card className="hover:shadow-lg transition-shadow">
               <CardHeader>
                 <div className="flex items-center mb-4">
                   <solution.icon className="h-12 w-12 text-lahore-red mr-4" />
@@ -191,6 +207,7 @@ const Solutions = () => {
                 </Button>
               </CardContent>
             </Card>
+            </motion.div>
           ))}
         </div>
 

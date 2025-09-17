@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Calendar, User, ArrowRight, CheckCircle, Building, Shield } from "lucide-react";
+import { motion } from "framer-motion";
 
 // Import blog images
 import securityGuardImg from "@/assets/security-guard-blog.jpg";
@@ -140,8 +141,15 @@ export const HomeBlog = () => {
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-16">
-          {featuredBlogs.slice(0, 6).map((blog) => (
-            <Card key={blog.id} className="border-none shadow-xl hover:shadow-2xl transition-all duration-300 group cursor-pointer bg-white hover:scale-105">
+          {featuredBlogs.slice(0, 6).map((blog, index) => (
+            <motion.div
+              key={blog.id}
+              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+            >
+              <Card className="border-none shadow-xl hover:shadow-2xl transition-all duration-300 group cursor-pointer bg-white hover:scale-105">
               <div className="aspect-video relative overflow-hidden rounded-t-lg">
                 <img 
                   src={blog.image} 
@@ -185,9 +193,10 @@ export const HomeBlog = () => {
                     Read More <ArrowRight className="h-4 w-4 ml-1" />
                   </Button>
                 </div>
-              </CardContent>
-            </Card>
-          ))}
+                  </CardContent>
+                </Card>
+              </motion.div>
+              ))}
         </div>
 
         {/* Completed Projects Section */}
@@ -203,8 +212,15 @@ export const HomeBlog = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {completedProjects.map((project) => (
-              <Card key={project.id} className="border-none shadow-xl hover:shadow-2xl transition-all duration-300 group cursor-pointer bg-white hover:scale-102">
+            {completedProjects.map((project, index) => (
+              <motion.div
+                key={project.id}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <Card className="border-none shadow-xl hover:shadow-2xl transition-all duration-300 group cursor-pointer bg-white hover:scale-102">
                 <div className="aspect-video relative overflow-hidden rounded-t-lg">
                   <img 
                     src={project.image} 
@@ -265,9 +281,10 @@ export const HomeBlog = () => {
                       View Details <ArrowRight className="h-4 w-4 ml-1" />
                     </Button>
                   </div>
-                </CardContent>
-              </Card>
-            ))}
+                  </CardContent>
+                </Card>
+              </motion.div>
+              ))}
           </div>
         </div>
 

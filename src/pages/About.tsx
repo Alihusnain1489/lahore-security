@@ -3,6 +3,7 @@ import { LahoreSecurityFooter } from "@/components/LahoreSecurityFooter";
 import { HeroSection } from "@/components/HeroSection";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Shield, Users, Award, Clock, Building, Target, Star } from "lucide-react";
+import { motion } from "framer-motion";
 import aboutHero from "@/assets/about-hero.jpg";
 import corporateBg from "@/assets/corporate-security-bg.jpg";
 import retailBg from "@/assets/retail-security-bg.jpg";
@@ -43,7 +44,14 @@ const About = () => {
           {/* Achievement Cards with Background Images */}
           <div className="grid md:grid-cols-3 gap-8 mb-16">
             {achievements.map((achievement, index) => (
-              <Card key={index} className="relative overflow-hidden group hover:shadow-xl transition-all duration-300">
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.2 }}
+                viewport={{ once: true }}
+              >
+                <Card className="relative overflow-hidden group hover:shadow-xl transition-all duration-300">
                 <div 
                   className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                   style={{ backgroundImage: `url(${achievement.image})` }}
@@ -58,11 +66,18 @@ const About = () => {
                   </div>
                 </CardContent>
               </Card>
+              </motion.div>
             ))}
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            <Card className="text-center">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <Card className="text-center">
               <CardHeader>
                 <Shield className="h-12 w-12 text-lahore-red mx-auto mb-4" />
                 <CardTitle>Trusted Security</CardTitle>
@@ -71,8 +86,15 @@ const About = () => {
                 <p className="text-lahore-gray">Professional security services you can rely on</p>
               </CardContent>
             </Card>
+            </motion.div>
 
-            <Card className="text-center">
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <Card className="text-center">
               <CardHeader>
                 <Users className="h-12 w-12 text-lahore-red mx-auto mb-4" />
                 <CardTitle>Expert Team</CardTitle>
@@ -81,8 +103,15 @@ const About = () => {
                 <p className="text-lahore-gray">Highly trained and experienced security professionals</p>
               </CardContent>
             </Card>
+            </motion.div>
 
-            <Card className="text-center">
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <Card className="text-center">
               <CardHeader>
                 <Award className="h-12 w-12 text-lahore-red mx-auto mb-4" />
                 <CardTitle>Quality Service</CardTitle>
@@ -91,8 +120,15 @@ const About = () => {
                 <p className="text-lahore-gray">Committed to delivering exceptional service quality</p>
               </CardContent>
             </Card>
+            </motion.div>
 
-            <Card className="text-center">
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <Card className="text-center">
               <CardHeader>
                 <Clock className="h-12 w-12 text-lahore-red mx-auto mb-4" />
                 <CardTitle>24/7 Coverage</CardTitle>
@@ -101,6 +137,7 @@ const About = () => {
                 <p className="text-lahore-gray">Round-the-clock security services available</p>
               </CardContent>
             </Card>
+            </motion.div>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">

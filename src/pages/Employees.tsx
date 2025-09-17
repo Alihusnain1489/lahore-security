@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { FileText, Users, Trophy, BookOpen, Shield, Clock, Phone, Mail, Star } from "lucide-react";
+import { motion } from "framer-motion";
 import employeesHero from "@/assets/employees-hero.jpg";
 import trainingBg from "@/assets/training-bg.jpg";
 import corporateBg from "@/assets/corporate-security-bg.jpg";
@@ -143,7 +144,14 @@ const Employees = () => {
         {/* Employee Highlight Cards */}
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           {employeeHighlights.map((highlight, index) => (
-            <Card key={index} className="relative overflow-hidden group hover:shadow-xl transition-all duration-300">
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+            >
+              <Card className="relative overflow-hidden group hover:shadow-xl transition-all duration-300">
               <div 
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                 style={{ backgroundImage: `url(${highlight.image})` }}
@@ -157,9 +165,10 @@ const Employees = () => {
                 <div className="bg-securitas-red px-4 py-2 rounded-full inline-block">
                   <span className="font-semibold">{highlight.feature}</span>
                 </div>
-              </CardContent>
-            </Card>
-          ))}
+                  </CardContent>
+                </Card>
+              </motion.div>
+              ))}
         </div>
 
         {/* Quick Access Resources */}

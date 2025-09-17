@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Calendar, User, ArrowRight, Newspaper, Globe, Award } from "lucide-react";
+import { motion } from "framer-motion";
 import newsHero from "@/assets/news-hero.jpg";
 import pressBg from "@/assets/press-conference-bg.jpg";
 import corporateBg from "@/assets/corporate-security-bg.jpg";
@@ -143,7 +144,14 @@ const News = () => {
         {/* Featured News Cards */}
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           {featuredNews.map((news, index) => (
-            <Card key={index} className="relative overflow-hidden group hover:shadow-xl transition-all duration-300">
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+            >
+              <Card className="relative overflow-hidden group hover:shadow-xl transition-all duration-300">
               <div 
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                 style={{ backgroundImage: `url(${news.image})` }}
@@ -157,9 +165,10 @@ const News = () => {
                 <Button className="bg-white text-securitas-navy hover:bg-white/90">
                   Read More <ArrowRight className="h-4 w-4 ml-2" />
                 </Button>
-              </CardContent>
-            </Card>
-          ))}
+                  </CardContent>
+                </Card>
+              </motion.div>
+              ))}
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">

@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Clock, DollarSign, Users, Briefcase, Award } from "lucide-react";
+import { motion } from "framer-motion";
 import careersHero from "@/assets/careers-hero.jpg";
 import corporateBg from "@/assets/corporate-security-bg.jpg";
 import retailBg from "@/assets/retail-security-bg.jpg";
@@ -107,7 +108,14 @@ const Careers = () => {
         {/* Career Opportunity Cards */}
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           {careerOpportunities.map((opportunity, index) => (
-            <Card key={index} className="relative overflow-hidden group hover:shadow-xl transition-all duration-300">
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+              viewport={{ once: true }}
+            >
+              <Card className="relative overflow-hidden group hover:shadow-xl transition-all duration-300">
               <div 
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                 style={{ backgroundImage: `url(${opportunity.image})` }}
@@ -130,6 +138,7 @@ const Careers = () => {
                 </Button>
               </CardContent>
             </Card>
+            </motion.div>
           ))}
         </div>
 
@@ -138,7 +147,14 @@ const Careers = () => {
             <h2 className="text-2xl font-bold text-securitas-navy mb-6">Current Job Openings</h2>
             <div className="space-y-6">
               {jobOpenings.map((job, index) => (
-                <Card key={index} className="hover:shadow-lg transition-shadow">
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <Card className="hover:shadow-lg transition-shadow">
                   <CardHeader>
                     <div className="flex justify-between items-start">
                       <div>
@@ -175,6 +191,7 @@ const Careers = () => {
                     </ul>
                   </CardContent>
                 </Card>
+                </motion.div>
               ))}
             </div>
           </div>
